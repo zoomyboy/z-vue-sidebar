@@ -1,6 +1,6 @@
 {
   "name": "z-vue-sidebar",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Sidebar vue component",
   "main": "index.js",
   "scripts": {
@@ -8,7 +8,7 @@
   },
   "dependencies": {
     "vue-events": "^3.0",
-	"z-js-list": "^1.0"
+    "z-js-list": "^1.0"
   },
   "repository": {
     "type": "git",
