@@ -64,7 +64,7 @@
 		display: block;
 		position: relative;
 		padding: 12px - 3px * @depth 24px 12px - 3px * @depth 12px + 12px * @depth;
-		.bg-hover(@depth, darken(@navbar-bg-dark, 1% * @depth), router-link-active);
+		.bg-hover(@depth, darken(@navbar-bg-dark, 1% * @depth), router-link-exact-active);
 		&:hover, &:active, &:focus {
 			text-decoration: none;
 		}
