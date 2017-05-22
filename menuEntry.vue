@@ -1,10 +1,10 @@
 <template>
 	<ul class="link-list" :class="[menuDepthClass]" :ref="'menuentry-'+parent">
 		<li v-for="(menuentry, id) in items" :class="{'has-children': hasChildren(id), 'openChild': isOpen(id)}">
-			<a v-if="routerLinks == false" @click.prevent="toggleCollapse(id)" :class="['menu-link']" :href="getHref(menuentry)" :title="menuentry.label" :ref="'menulink-'+chain(id)">
+			<a v-if="routerLinks == false || hasChildren(id)" @click.prevent="toggleCollapse(id)" :class="['menu-link']" :href="getHref(menuentry)" :title="menuentry.label">
 				<span :class="'fa fa-'+menuentry.icon" v-if="menuentry.icon != false"></span><span class="link-label">{{ menuentry.label }}</span>
 			</a>
-			<router-link v-if="routerLinks == true" @click.native="toggleCollapse(id)" :class="['menu-link', {'openChild': isOpen(id)}]" :to="getHref(menuentry)" :title="menuentry.label" :ref="'menulink-'+chain(id)">
+			<router-link v-if="routerLinks == true && !hasChildren(id)" @click.native="toggleCollapse(id)" :class="['menu-link', {'openChild': isOpen(id)}]" :to="getHref(menuentry)" :title="menuentry.label">
 				<span :class="'fa fa-'+menuentry.icon" v-if="menuentry.icon"></span><span class="link-label">{{ menuentry.label }}</span>
 			</router-link>
 			<entry v-if="hasChildren(id)" :items="menuentry.children" :depth="depth + 1" :parent="chain(id)"></entry>
@@ -51,7 +51,7 @@
 	}
 
 	.bg-hover(@depth, @color, @activeClass) when (@depth > 0) {
-		&:hover, &.router-link-active {background: @color;}
+		&:hover, &.@{activeClass} {background: @color;}
 	}
 
 	.menuLink(@depth) {
@@ -64,7 +64,10 @@
 		display: block;
 		position: relative;
 		padding: 12px - 3px * @depth 24px 12px - 3px * @depth 12px + 12px * @depth;
-		.bg-hover(@depth, darken(@navbar-bg-dark, 1% * @depth), 'router-link-active');
+		.bg-hover(@depth, darken(@navbar-bg-dark, 1% * @depth), router-link-active);
+		&:hover, &:active, &:focus {
+			text-decoration: none;
+		}
 		//center icon of link in small sidebar
 		body.sidebar-sm & {
 			text-align: center;			
@@ -104,7 +107,7 @@
 			border-bottom: @navbar-bg-bright solid 1px;
 			border-top: @navbar-bg-bright solid 1px;
 		}
-		&.openChild > a {
+		&.openChild > a, & > a.router-link-exact-active {
 			background: lighten(@navbar-bg-bright, 5%);
 			border-bottom: darken(@navbar-bg-bright, 4%) solid 1px;
 			border-top: lighten(@navbar-bg-bright, 10%) solid 1px;
