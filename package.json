@@ -1,6 +1,6 @@
 {
   "name": "z-vue-sidebar",
-  "version": "1.0.10",
+  "version": "1.0.11",
   "description": "Sidebar vue component",
   "main": "index.js",
   "scripts": {
@@ -12,7 +12,7 @@
     "perfect-scrollbar": "",
     "font-awesome": "^4.7.0",
     "font-awesome-webpack": "0.0.5-beta.2",
-	"z-ui": "^1.0"
+    "z-ui": "^1.0"
   },
   "repository": {
     "type": "git",
