@@ -8,6 +8,8 @@
 </template>
 
 <style lang="less">
+	@import "~bootstrap/less/bootstrap.less";
+	@import "~z-ui/ui.less";
 	@import "navbar.less";
 
 	#topbar {
