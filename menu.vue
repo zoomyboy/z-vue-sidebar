@@ -6,7 +6,7 @@
 </template>
 
 <style lang="less">
-	@import '~sidebarStyles';
+	@import '~sidebarStyle';
 
 	.sidebar-menu {
 		.menu-heading {

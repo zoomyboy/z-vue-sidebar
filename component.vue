@@ -8,7 +8,7 @@
 </template>
 
 <style lang="less">
-	@import "~sidebarStyles";
+	@import "~sidebarStyle";
 
 	#topbar {
 		height: 60px;
@@ -33,5 +33,5 @@
 </style>
 
 <script>
-	require('bootstrap')
+	require('style-loader!css-loader!less-loader!bootstrap/less/bootstrap.less')
 </script>

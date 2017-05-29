@@ -13,7 +13,7 @@
 </template>
 
 <style lang="less">
-	@import '~sidebarStyles';
+	@import '~sidebarStyle';
 
 	.hasCaret() {
 		&.has-children.openChild > a:after { 

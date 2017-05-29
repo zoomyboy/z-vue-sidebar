@@ -23,8 +23,7 @@
 </template>
 
 <style lang="less">
-	@import "~bootstrap/less/bootstrap.less";
-	@import '~sidebarStyles';
+	@import '~sidebarStyle';
 	@import '~perfect-scrollbar/dist/css/perfect-scrollbar.css';
 
 	#page-sidebar {
@@ -100,7 +99,7 @@
 
 <script>
 	require('font-awesome-webpack');
-	require('bootstrap');
+	require('style-loader!css-loader!less-loader!bootstrap/less/bootstrap.less')
 	window.Ps = require('perfect-scrollbar');
 	var $ = require('jquery');
  
