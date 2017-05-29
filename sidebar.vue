@@ -23,13 +23,14 @@
 </template>
 
 <style lang="less">
-	@import 'navbar';
+	@import "~bootstrap/less/bootstrap.less";
+	@import '~sidebarStyles';
 	@import '~perfect-scrollbar/dist/css/perfect-scrollbar.css';
 
 	#page-sidebar {
-    	background: @navbar-bg-dark;
+    	background: @bg-dark;
 		#sidebar-menu-container {
-			background: @navbar-bg-bright;
+			background: @bg-bright;
 			position: relative;
 		}
 		body, html {
@@ -57,23 +58,23 @@
 		left: 0;
 		left: 0;
 		height: auto;
-		background: @navbar-bg-dark;
+		background: @bg-dark;
 		.pagelink {
 			padding: 12px 0;
 			display: block;
 			.heading {
-				color:  @navbar-link-bright;
+				color:  @link-bright;
 				font-weight: bold;
 				font-size: 15px;
 			}
 			.subheading {
-				color: @navbar-link-dark;
+				color: @link-dark;
 				font-size: 11px;
 			}
 		}
 		.toggle-container a {
 			font-size: 19px;
-			color: @navbar-link-dark;
+			color: @link-dark;
     		padding: 17px 0;
     		display: block;
 		}

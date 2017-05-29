@@ -6,7 +6,7 @@
 </template>
 
 <style lang="less">
-	@import 'navbar';
+	@import '~sidebarStyles';
 
 	.sidebar-menu {
 		.menu-heading {
@@ -14,7 +14,7 @@
 			font-size: 12px;
 			padding: 20px 12px 0;
 			font-weight: 700;
-			color: @navbar-link-dark;
+			color: @link-dark;
 			body.sidebar-sm & {
 				font-size: 10px;
 				text-align: center;
