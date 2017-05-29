@@ -100,6 +100,7 @@
 
 <script>
 	require('font-awesome-webpack');
+	require('bootstrap');
 	window.Ps = require('perfect-scrollbar');
 	var $ = require('jquery');
  

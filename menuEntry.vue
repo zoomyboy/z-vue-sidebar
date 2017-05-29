@@ -135,6 +135,7 @@
 
 <script>
 	import List from 'z-js-list';
+
 	export default {
 		name: 'entry',
 		props: {
