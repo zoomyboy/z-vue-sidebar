@@ -1,20 +1,12 @@
 <template>
 	<div class="main-component">
-		<div id="topbar">
-		</div>
-
+		<topbar></topbar>
 		<slot></slot>
 	</div>
 </template>
 
 <style lang="less">
 	@import "~sidebarStyle";
-
-	#topbar {
-		height: 60px;
-		background: white;
-		border-bottom:1px #eeeeee solid;
-	}
 
 	body {
 		background: @bg-body;
@@ -34,4 +26,10 @@
 
 <script>
 	require('style-loader!css-loader!less-loader!bootstrap/less/bootstrap.less')
+
+	export default {
+		components: {
+			topbar: require('./topbar.vue')
+		}
+	};
 </script>

@@ -1,0 +1,57 @@
+<template>
+	<li class="footer-link" ref="footerlink">
+		<a v-if="href" :href="href" :data-toggle="toggle" data-original-title="" :title="realTitle">
+			<div v-if="icon"><span :class="'fa fa-'+icon"></span></div>
+			<div v-if="title">{{ title }}</div>
+		</a>
+		<router-link v-if="route" :to="{'name': route}" :data-toggle="toggle" data-original-title="" :title="realTitle">
+			<div v-if="icon"><span :class="'fa fa-'+icon"></span></div>
+			<div v-if="title">{{ entry.title }}</div>
+		</router-link>
+	</li>
+</template>
+
+<style lang="less">
+	@import "~sidebarStyle";
+
+	.footer-link {
+		background-color: @navbar-bg-dark;
+		display: inline-block;
+		&:hover {
+			background-color: @navbar-bg-very-bright;
+		}
+		& > a {
+			display: block;
+			text-align: center;
+			color: @link-dark;
+			font-size: 12px;
+			padding: 10px;
+			&:hover, &:focus, &:active {
+				text-decoration: none;
+			}
+		}
+	}
+</style>
+
+<script>
+	export default {
+		props: ['href', 'icon', 'title', 'route', 'tooltip'],
+		computed: {
+			toggle: function() {
+				if (this.tooltip) {return 'tooltip';}
+				return '';
+			},
+			realTitle: function() {
+				if (this.tooltip) {return this.tooltip;}
+				return '';
+			},
+			tooltipClass: function() {
+				if (this.tooltip) {return 'linkTooltip';}
+				return '';
+			}
+		},
+		mounted: function() {
+			$(this.$refs.footerlink).find('[data-toggle="tooltip"]').tooltip({container: 'body'});
+		}
+	}
+</script>

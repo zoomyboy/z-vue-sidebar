@@ -1,42 +1,28 @@
 <template>
-	<div class="cp-sidebar-footer cp-wrap">
-		<div v-for="entry in entries" :style="{width: eachWidth+'%'}">
-			<a v-if="entry.href" :href="entry.href">
-				<div v-if="entry.icon"><span :class="'fa fa-'+entry.icon"></span></div>
-				<div v-if="entry.title">{{ entry.title }}</div>
-			</a>
-			<router-link v-if="entry.route" :to="entry.route">
-				<div v-if="entry.icon"><span :class="'fa fa-'+entry.icon"></span></div>
-				<div v-if="entry.title">{{ entry.title }}</div>
-			</router-link>
-		</div>
-	</div>
+	<ul class="cp-sidebar-footer cp-wrap footer-links">
+		<footerlink v-for="(entry,ind) in entries"
+			:style="{width: eachWidth+'%'}"
+			:key="ind"
+			class="footer-link"
+   			:route="entry.route"
+   			:href="entry.href"
+   			:title="entry.title"
+   			:icon="entry.icon"
+   			:tooltip="entry.tooltip"
+		></footerlink>
+	</ul>
 </template>
 
 <style lang="less">
 	@import "~sidebarStyle";
 
-	.cp-sidebar-footer {
+	ul.footer-links {
 		position: absolute;
 		bottom: 0;
 		width: 100%;
 		font-size: 0;
-		& > div {
-			padding: 10px;
-			background-color: @bg-dark;
-			display: inline-block;
-			&:hover {
-				background-color: @bg-very-bright;
-			}
-			& > a {
-				text-align: center;
-				color: @link-dark;
-				font-size: 12px;
-				&:hover, &:focus, &:active {
-					text-decoration: none;
-				}
-			}
-		}
+		margin-bottom: 0;
+		padding-left: 0;
 	}
 </style>
 
@@ -47,6 +33,9 @@
 				type: Array,
 				required: true
 			}
+		},
+		components: {
+			footerlink: require('./footerlink.vue')
 		},
 		computed: {
 			eachWidth: function() {

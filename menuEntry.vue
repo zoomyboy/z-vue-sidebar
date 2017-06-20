@@ -59,12 +59,12 @@
 		line-height: 32px - 6px * @depth;
 		height: 32px - 6px * @depth;
 		font-weight: 400;
-		color: @link-dark;
+		color: @navbar-link-dark;
 		box-sizing: content-box;
 		display: block;
 		position: relative;
 		padding: 12px - 3px * @depth 24px 12px - 3px * @depth 12px + 12px * @depth;
-		.bg-hover(@depth, darken(@bg-dark, 1% * @depth), router-link-exact-active);
+		.bg-hover(@depth, darken(@navbar-bg-dark, 1% * @depth), router-link-exact-active);
 		&:hover, &:active, &:focus {
 			text-decoration: none;
 		}
@@ -88,7 +88,7 @@
 			body.sidebar-sm & {margin: 0;}
 		}
 		&:hover {
-			color: lighten(@link-dark, 20%);
+			color: lighten(@navbar-link-dark, 20%);
 		}
 		body.sidebar-sm & .link-label {
 			display: none;
@@ -104,19 +104,19 @@
 
 	.hasOpenClass(@depth) when (@depth = 0) {
 		& > a {
-			border-bottom: @bg-bright solid 1px;
-			border-top: @bg-bright solid 1px;
+			border-bottom: @navbar-bg-bright solid 1px;
+			border-top: @navbar-bg-bright solid 1px;
 		}
 		&.openChild > a, & > a.router-link-exact-active {
-			background: lighten(@bg-bright, 5%);
-			border-bottom: darken(@bg-bright, 4%) solid 1px;
-			border-top: lighten(@bg-bright, 10%) solid 1px;
+			background: lighten(@navbar-bg-bright, 5%);
+			border-bottom: darken(@navbar-bg-bright, 4%) solid 1px;
+			border-top: lighten(@navbar-bg-bright, 10%) solid 1px;
 		}
 	}
 
 	.buildMenu(@depth, @currentDepth: 0) when (@currentDepth <= @depth) {
 		ul.link-list.menu-depth@{currentDepth} {
-			.menuDepth(@currentDepth, darken(@bg-bright, 2% * @currentDepth));
+			.menuDepth(@currentDepth, darken(@navbar-bg-bright, 2% * @currentDepth));
 			& > li {
 				.hasCaret();
 				.hasMargin(@currentDepth);

@@ -27,9 +27,9 @@
 	@import '~perfect-scrollbar/dist/css/perfect-scrollbar.css';
 
 	#page-sidebar {
-    	background: @bg-dark;
+    	background: @navbar-bg-dark;
 		#sidebar-menu-container {
-			background: @bg-bright;
+			background: @navbar-bg-bright;
 			position: relative;
 		}
 		body, html {
@@ -57,23 +57,23 @@
 		left: 0;
 		left: 0;
 		height: auto;
-		background: @bg-dark;
+		background: @navbar-bg-dark;
 		.pagelink {
 			padding: 12px 0;
 			display: block;
 			.heading {
-				color:  @link-bright;
+				color:  @navbar-link-bright;
 				font-weight: bold;
 				font-size: 15px;
 			}
 			.subheading {
-				color: @link-dark;
+				color: @navbar-link-dark;
 				font-size: 11px;
 			}
 		}
 		.toggle-container a {
 			font-size: 19px;
-			color: @link-dark;
+			color: @navbar-link-dark;
     		padding: 17px 0;
     		display: block;
 		}

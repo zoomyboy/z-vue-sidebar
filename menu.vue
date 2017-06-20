@@ -14,7 +14,7 @@
 			font-size: 12px;
 			padding: 20px 12px 0;
 			font-weight: 700;
-			color: @link-dark;
+			color: @navbar-link-dark;
 			body.sidebar-sm & {
 				font-size: 10px;
 				text-align: center;
