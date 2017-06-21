@@ -1,6 +1,5 @@
 <template>
 	<div class="main-component">
-		<topbar></topbar>
 		<slot></slot>
 	</div>
 </template>
@@ -26,10 +25,4 @@
 
 <script>
 	require('style-loader!css-loader!less-loader!bootstrap/less/bootstrap.less')
-
-	export default {
-		components: {
-			topbar: require('./topbar.vue')
-		}
-	};
 </script>
