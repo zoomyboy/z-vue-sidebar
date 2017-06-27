@@ -8,6 +8,5 @@ export default {
 		Vue.component('sidebarmenu', require('./menu.vue'));
 		Vue.component('comp', require('./component.vue'));
 		Vue.component('topbar', require('./topbar.vue'));
-		Vue.component('topbardropdown', require('./topbardropdown.vue'));
 	}
 };

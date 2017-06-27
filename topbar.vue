@@ -25,16 +25,28 @@
 		.topbar-left {
 			padding-left: 40px;
 		}
-		ul.dropdown-menu {
-			margin-top: 0;
-			border: 2px solid @topbar-border;
-			border-top: 0;
-			background-color: @topbar-bg;
-			border-radius: 0;
-			li {
-				a {
-					&:hover, &:active, &:focus {
-						background-color: darken(@topbar-bg, 5%);
+		.dropdown {
+			line-height: 60px;
+			.dropdown-toggle {
+				cursor: pointer;
+				padding: 0 10px;
+				&:hover {
+					background: darken(@topbar-bg, 5%);
+				}
+			}
+			&.open .dropdown-toggle {
+				background: darken(@topbar-bg, 5%);
+			}
+			ul.dropdown-menu {
+				border: 2px solid @topbar-border;
+				border-top: 0;
+				background-color: @topbar-bg;
+				border-radius: 0;
+				li {
+					a {
+						&:hover, &:active, &:focus {
+							background-color: darken(@topbar-bg, 5%);
+						}
 					}
 				}
 			}
