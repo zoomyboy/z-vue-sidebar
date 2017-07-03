@@ -20,10 +20,10 @@
 		flex-direction: row;
 		justify-content: space-between;
 		.topbar-right {
-			padding-right: 40px;
+			padding-right: 15px;
 		}
 		.topbar-left {
-			padding-left: 40px;
+			padding-left: 15px;
 		}
 		.dropdown {
 			line-height: 60px;

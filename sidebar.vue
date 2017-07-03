@@ -52,9 +52,7 @@
 		}
 		width: 300px;
 		max-width: 300px;
-		transition: width 0.3s, max-width 0.3s;
 		position: fixed;
-		left: 0;
 		left: 0;
 		height: auto;
 		background: @navbar-bg-dark;
@@ -78,8 +76,11 @@
     		display: block;
 		}
 
-		body.sidebar-sm & {
+		body.lazy & {
 			transition: width 0.3s, max-width 0.3s;
+		}
+
+		body.sidebar-sm & {
 			max-width: 80px;
 			width: 80px;
 			overflow: hidden;
@@ -124,6 +125,10 @@
 				if (newVal == 'sidebar-sm') {
 					this.$events.fire('slideUpInLayer', '0');
 				}
+
+				this.$nextTick(function() {
+					window.setTimeout(function() {$('body').addClass('lazy');});
+				});
 			}
 		},
 		computed: {
@@ -155,6 +160,7 @@
 			var vm = this;
 			
 			this.bodyClass = this.getBodyClassFromWindow();
+
 			this.innerContainerHeight = $(window).height();
 			$(window).resize(function() {
 				if (!vm.userCollapsed) {
