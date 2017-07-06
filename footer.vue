@@ -1,6 +1,6 @@
 <template>
 	<ul class="cp-sidebar-footer cp-wrap footer-links">
-		<footerlink v-for="(entry,ind) in entries"
+		<footerlink v-for="(entry,ind) in filteredEntries"
 			:style="{width: eachWidth+'%'}"
 			:key="ind"
 			class="footer-link"
@@ -39,7 +39,14 @@
 		},
 		computed: {
 			eachWidth: function() {
-				return 100 / this.entries.length;
+				return 100 / this.filteredEntries.length;
+			},
+			filteredEntries: function() {
+				var vm = this;
+
+				return this.entries.filter(function(entry) {
+					return vm.$user == undefined || !entry.right || vm.$user.hasRight(entry.right);
+				});
 			}
 		}
 	}

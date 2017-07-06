@@ -1,6 +1,6 @@
 <template>
 	<ul class="link-list" :class="[menuDepthClass]" :ref="'menuentry-'+parent">
-		<li v-for="(menuentry, id) in items" :class="{'has-children': hasChildren(id), 'openChild': isOpen(id)}">
+		<li v-for="(menuentry, id) in filteredItems" :class="{'has-children': hasChildren(id), 'openChild': isOpen(id)}">
 			<a v-if="routerLinks == false || hasChildren(id)" @click.prevent="toggleCollapse(id)" :class="['menu-link']" :href="getHref(menuentry)" :title="menuentry.label">
 				<span :class="'fa fa-'+menuentry.icon" v-if="menuentry.icon != false"></span><span class="link-label">{{ menuentry.label }}</span>
 			</a>
@@ -162,6 +162,13 @@
 			},
 			depth: function() {
 				return this.parent.split('-').length - 1;
+			},
+			filteredItems: function() {
+				var vm = this;
+
+				return this.items.filter(function(item) {
+					return vm.$user == undefined || !item.right || vm.$user.hasRight(item.right);
+				});
 			}
 		},
 		components: {
@@ -202,7 +209,7 @@
 				}
 			},
 			hasChildren: function(key) {
-				return this.items[key].children != undefined && this.items[key].children.length > 0;
+				return this.filteredItems[key].children != undefined && this.filteredItems[key].children.length > 0;
 			},
 		},
 		created () {
@@ -211,7 +218,7 @@
 		mounted () {
 			var vm = this;
 
-			this.items.forEach(function(item, key) {
+			this.filteredItems.forEach(function(item, key) {
 				vm.$events.listen('updateOpenState-'+vm.chain(key), function() {
 					vm.updateOpenState(key);
 				});
@@ -220,7 +227,7 @@
 			vm.$events.listen('toggleSubmenu', function(parent) {
 				if (parent != vm.parent && parent != 'all') {return;} 
 
-				vm.items.forEach((item, key) => {
+				vm.filteredItems.forEach((item, key) => {
 					if (vm.hasChildren(key) && vm.isOpen(key)) {
 						vm.$events.fire('toggleSubmenu', vm.chain(key));
 					}
@@ -231,7 +238,7 @@
 
 			vm.$events.listen('slideUpInLayer', function(depth) {
 				if (vm.depth == depth) {
-					vm.items.forEach((item, key) => {
+					vm.filteredItems.forEach((item, key) => {
 						if (vm.hasChildren(key) && vm.isOpen(key)) {
 							vm.$events.fire('toggleSubmenu', vm.chain(key));
 						}
