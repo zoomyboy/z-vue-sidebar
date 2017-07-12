@@ -26,7 +26,6 @@
 </style>
 
 <script>
-	require('style-loader!css-loader!less-loader!bootstrap/less/bootstrap.less')
 	export default {
 		data: function() {
 			return {
