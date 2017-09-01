@@ -27,6 +27,11 @@
 		}
 		.dropdown {
 			line-height: 60px;
+			display: inline-block;
+			margin-right: 4px;
+			&:last-child {
+				margin-right: 0;
+			}
 			.dropdown-toggle {
 				cursor: pointer;
 				padding: 0 10px;
