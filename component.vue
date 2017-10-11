@@ -12,6 +12,7 @@
 	}
 
 	.main-component {
+		min-height: 100%;
 		body.lazy & {
 			transition: margin-left 0.3s;
 		}
