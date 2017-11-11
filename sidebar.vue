@@ -24,7 +24,7 @@
 
 <style lang="less">
 	@import '~sidebarStyle';
-	@import '~perfect-scrollbar/dist/css/perfect-scrollbar.css';
+	@import '~perfect-scrollbar/css/perfect-scrollbar.css';
 
 	#page-sidebar {
     	background: @navbar-bg-dark;
@@ -100,7 +100,7 @@
 
 <script>
 	require('font-awesome-webpack');
-	window.Ps = require('perfect-scrollbar');
+	import PerfectScrollbar from 'perfect-scrollbar';
 	var $ = require('jquery');
  
 	export default {
@@ -169,7 +169,7 @@
 			});
 
 			var container = document.getElementById('sidebar-menu-container');
-			Ps.initialize(container);
+			new PerfectScrollbar('#sidebar-menu-container');
 		}
 	}
 </script>
