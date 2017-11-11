@@ -16,7 +16,6 @@
 
 	.footer-link {
 		background-color: @navbar-bg-dark;
-		display: inline-block;
 		&:hover {
 			background-color: @navbar-bg-very-bright;
 		}
@@ -24,16 +23,21 @@
 			display: block;
 			text-align: center;
 			color: @link-dark;
-			font-size: 12px;
-			padding: 10px;
+			font-size: 10px;
+			padding: 8px;
 			&:hover, &:focus, &:active {
 				text-decoration: none;
+			}
+			.fa {
+				font-size: 20px;
 			}
 		}
 	}
 </style>
 
 <script>
+	require('bootstrap');
+
 	export default {
 		props: ['href', 'icon', 'title', 'route', 'tooltip'],
 		computed: {

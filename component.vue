@@ -1,6 +1,9 @@
 <template>
-	<div :class="['main-component', {'lazy': lazy}]">
-		<slot></slot>
+	<div :class="[{'lazy': lazy}]" id="page-container">
+		<slot name="sidebar"></slot>
+		<div id="main-component">
+			<slot id="topbar"></slot>
+		</div>
 	</div>
 </template>
 
@@ -11,17 +14,30 @@
 		background: @bg-body;
 	}
 
-	.main-component {
+	#page-container {
+		height: 100%;
 		min-height: 100%;
+		font-size: 0;
+		& > * {
+			height: 100%;
+			min-height: 100%;
+			display: inline-block;
+			vertical-align: top;
+		}
+
+	}
+
+	#main-component {
+		display: inline-block;
 		body.lazy & {
-			transition: margin-left 0.3s;
+			transition: width 0.3s;
 		}
 		body.sidebar-lg & {
-			margin-left: 300px;
+			width: calc(100% ~"-" @sidebarWidth);
 		}
 
 		body.sidebar-sm & {
-			margin-left: 80px;
+			width: calc(~"100% - 80px");
 		}
 	}
 </style>
