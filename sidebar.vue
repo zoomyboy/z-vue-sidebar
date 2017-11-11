@@ -6,13 +6,13 @@
 					L
 				</div>
 				<div class="col-xs-8 link-container">
-					<a :href="headerHref" class="pagelink" :title="headerTitle">
-						<div class="heading">{{ headerTitle }}</div>
-						<div class="subheading">{{ subHeaderTitle }}</div>
+					<a :href="headerhref" class="pagelink" :title="headertitle">
+						<div class="heading">{{ headertitle }}</div>
+						<div class="subheading">{{ subheadertitle }}</div>
 					</a>
 				</div>
 				<div class="col-xs-2 toggle-container">
-					<a @click.prevent="triggerButton" href="#" :title="closeTitle"><i :class="toggleClass"></i></a>
+					<a @click.prevent="triggerButton" href="#" :title="closetitle"><i :class="toggleClass"></i></a>
 				</div>
 			</div>
 		</div>
@@ -105,10 +105,10 @@
  
 	export default {
 		props: {
-			'headerHref': false,
-			'headerTitle': false,
-			'subHeaderTitle': false,
-			'closeTitle': false,
+			'headerhref': false,
+			'headertitle': false,
+			'subheadertitle': false,
+			'closetitle': false,
 		},
 		data: function() {
 			return {
