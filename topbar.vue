@@ -13,7 +13,7 @@
 	@import "~sidebarStyle";
 
 	#topbar {
-		height: 60px;
+		height: @topbarHeight;
 		background: @topbar-bg;
 		border-bottom:1px @topbar-border solid;
 		display: flex;

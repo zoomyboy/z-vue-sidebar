@@ -2,7 +2,11 @@
 	<div :class="[{'lazy': lazy}]" id="page-container">
 		<slot name="sidebar"></slot>
 		<div id="main-component">
-			<slot id="topbar"></slot>
+			<slot name="topbar" id="topbar"></slot>
+			<slot name="header" id="header"></slot>
+			<div class="container-fluid content-container">
+				<slot name="content" id="content"></slot>
+			</div>
 		</div>
 	</div>
 </template>
@@ -23,6 +27,7 @@
 			min-height: 100%;
 			display: inline-block;
 			vertical-align: top;
+			font-size: initial;
 		}
 
 	}
@@ -39,6 +44,18 @@
 		body.sidebar-sm & {
 			width: calc(~"100% - 80px");
 		}
+		#topbar-container {
+			height: @topbarHeight;
+		}
+		.content-container {
+			height: calc(100% ~"-" (@topbarHeight + 75px));
+			& > div {
+				height: 100%;
+				& > .cp-wrap {
+					height: 100%;
+				}
+			}
+		}
 	}
 </style>
 
@@ -49,6 +66,12 @@
 				lazy: false,
 				windowWidth: 0
 			};
+		},
+		props: {
+			topbar: {
+				type: Boolean,
+				default: false
+			}
 		},
 		mounted: function() {
 			var vm = this;
