@@ -53,6 +53,7 @@
 		.content-container {
 			height: calc(100% ~"-" (@topbarHeight + 65px));
 			padding: 15px;
+			font-size: 1.3rem;
 			& > div {
 				height: 100%;
 				& > .cp-wrap {
