@@ -21,7 +21,7 @@
 		</div>
 		<slot  name="footer" v-if="footer"></slot>
 		<div class="footer-trigger" v-if="footer && bodyClass == 'sidebar-sm'">
-			<a class="footer-link" @click="footerExpanded = !footerExpanded"><span :class="['fa', {'fa-chevron-right': !footerexpanded, 'fa-chevron-left': footerexpanded}]"></span></a>
+			<a class="footer-link" @click="footerExpanded = !footerExpanded"><span :class="['fa', {'fa-chevron-right': !footerExpanded, 'fa-chevron-left': footerExpanded}]"></span></a>
 		</div>
 	</div>
 </template>
