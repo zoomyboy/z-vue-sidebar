@@ -1,6 +1,6 @@
 {
   "name": "z-vue-sidebar",
-  "version": "1.0.23",
+  "version": "1.0.24",
   "description": "Sidebar vue component",
   "main": "index.js",
   "scripts": {
